@@ -23,8 +23,8 @@ class Wrapper extends React.Component {
   render(){
     return(
       <View style={styles.container}>
-        { this.props.scene === 'HOME' && <Profile /> }
-        { this.props.scene === 'PROFILE' && <Home /> }
+        { this.props.scene === 'HOME' && <Home /> }
+        { this.props.scene === 'PROFILE' && <Profile /> }
         <FooterNavigation setModalVisible={()=> this.setModalVisible()}></FooterNavigation>
         <Posting state={this.state.modalVisible} setModalVisible={()=> this.setModalVisible()}></Posting>
       </View>
