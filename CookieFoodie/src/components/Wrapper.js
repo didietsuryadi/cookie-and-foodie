@@ -1,19 +1,36 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View } from 'react-native';
+import { View, Modal, Text, TouchableHighlight } from 'react-native';
 import FooterNavigation from './Navigator';
 import Home from './Home';
 import Profile from './Profile';
 import Posting from './Posting';
 
-const Wrapper = (props) => (
-  <View style={styles.container}>
-    { props.scene === 'HOME' && <Home /> }
-    { /*props.scene === 'PROFILE' || <Profile />*/ }
-    { /*props.scene === 'POSTING' || <Posting />*/ }
-    <FooterNavigation></FooterNavigation>
-  </View>
-);
+class Wrapper extends React.Component {
+  constructor(){
+    super()
+    this.state={
+      modalVisible: false
+    }
+  }
+
+  setModalVisible(){
+    this.setState({
+      modalVisible: !this.state.modalVisible,
+    })
+  }
+
+  render(){
+    return(
+      <View style={styles.container}>
+        { this.props.scene === 'HOME' && <Profile /> }
+        { this.props.scene === 'PROFILE' && <Home /> }
+        <FooterNavigation setModalVisible={()=> this.setModalVisible()}></FooterNavigation>
+        <Posting state={this.state.modalVisible} setModalVisible={()=> this.setModalVisible()}></Posting>
+      </View>
+    )
+  }
+}
 
 const styles = {
   container: {

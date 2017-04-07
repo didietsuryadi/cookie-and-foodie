@@ -1,8 +1,9 @@
 import React from 'react'
 import { View, Text } from 'react-native'
+import styles from './styles/TimeLine.styles'
 
 const Search = () => (
-  <View>
+  <View style={styles.box}>
     <Text>Search</Text>
   </View>
 )
