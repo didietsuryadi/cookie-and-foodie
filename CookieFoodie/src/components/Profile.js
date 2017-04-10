@@ -1,24 +1,25 @@
 import React from 'react'
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { connect } from 'react-redux'
+import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native'
 import styles from './styles/Profile.styles.js'
 import Header from './Header'
 
-const Profile = () => (
+const Profile = (props) => (
   <View style={styles.box}>
     <Header></Header>
     <View style={styles.header}>
       <View style={styles.rating}>
-        <Image style={styles.image} source={require('../image/Didit.jpg')} />
+        <Image style={styles.image} source={{uri: props.person.photo}} />
         <View style={styles.vote}>
-          <Text style={styles.textLike}>200</Text>
+          <Text style={styles.textLike}>{props.person.subscribers.length}</Text>
           <Text>Subscribers</Text>
         </View>
         <View style={styles.vote}>
-          <Text style={styles.textLike}>200</Text>
+          <Text style={styles.textLike}>{props.person.likes.length}</Text>
           <Text>Likes</Text>
         </View>
         <View style={styles.vote}>
-          <Text style={styles.textLike}>100</Text>
+          <Text style={styles.textLike}>{props.person.reviewers.length}</Text>
           <Text>Reviewers</Text>
         </View>
       </View>
@@ -27,11 +28,29 @@ const Profile = () => (
           <Text>Edit Profile</Text>
         </ TouchableOpacity >
       </View>
+      <View>
+        <Text style={{fontWeight:'bold'}}>{props.person.name}</Text>
+        <Text>{props.person.bio}</Text>
+      </View>
     </View>
-    <View style={styles.galery}>
-
-    </View>
+    <ScrollView style={{height:400}}>
+      <View style={styles.galery}>
+        {props.person.collections.map((item,index) => {
+          return(
+            <TouchableOpacity style={{padding:7, shadowOpacity: 0.2}} key={index}>
+              <Image style={styles.galleryImage} source={{uri: item.photo}} />
+            </TouchableOpacity>
+          )
+        })}
+      </View>
+    </ScrollView>
   </View>
 )
 
-export default Profile;
+const mapStateToProps = (state) => {
+  return{
+    person: state.person
+  }
+}
+
+export default connect(mapStateToProps,null)(Profile);

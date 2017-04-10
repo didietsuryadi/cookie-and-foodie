@@ -3,12 +3,12 @@ export default {
     flex:1,
     width:"100%",
     height:"93%",
+    flexDirection:'column',
     backgroundColor: '#ECF0F1',
   },
   header:{
-    flex:1,
+    flex: 0.3,
     padding: 10,
-
   },
   image:{
     width: 75,
@@ -36,5 +36,17 @@ export default {
     borderRadius:5,
     backgroundColor:'#EEEEEE',
     marginLeft:60,
+  },
+  galery:{
+    borderTopColor:'black',
+    flexDirection:'row',
+    flexWrap: 'wrap',
+    padding: 9,
+    width:'100%',
+  },
+  galleryImage:{
+    width: 75,
+    height: 75,
+    padding: 5,
   }
 }

@@ -9,7 +9,7 @@ import TimeLine from './TimeLine.js'
 
 const Home = () => (
   <View style={{height:'93%'}}>
-    <Tabs>
+    <Tabs initialPage={1}>
         <Tab heading={ <TabHeading style={Styles.tab}><Icon size={20} name='ios-search' /></TabHeading>}>
             <Search />
         </Tab>

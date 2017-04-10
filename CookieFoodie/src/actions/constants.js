@@ -1,3 +1,11 @@
 export const HOME_SCENE = "HOME_SCENE";
 export const PROFILE_SCENE = "PROFILE_SCENE";
 export const POSTING_SCENE = "POSTING_SCENE";
+export const GET_POSTING = "GET_POSTING";
+export const CREATE_POSTING = "CREATE_POSTING";
+export const UPDATE_POSTING = "UPDATE_POSTING";
+export const DELETE_POSTING = "DELETE_POSTING";
+export const GET_PERSON = "GET_PERSON";
+export const CREATE_PERSON = "CREATE_PERSON";
+export const UPDATE_PERSON = "UPDATE_PERSON";
+export const DELETE_PERSON = "DELETE_PERSON";
